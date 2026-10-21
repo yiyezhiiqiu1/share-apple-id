@@ -13,7 +13,7 @@ python3 scripts/update.py
 
 创建空的公开仓库（默认分支 main）后，把这些文件推送上去。在 Actions 页找到“每日同步网站状态”，点击 Run workflow 验证一次。若账号或组织策略禁止 Actions 写入，请在仓库 Settings → Actions → General 核对工作流权限及分支保护规则。
 
-默认每天北京时间 08:23 运行。改时间请调整 `.github/workflows/daily-update.yml` 的 UTC cron。README 时间和 commit 日期均使用 Asia/Shanghai。
+默认每天北京时间 00:00 运行。改时间请调整 `.github/workflows/daily-update.yml` 的 UTC cron。README 时间和 commit 日期均使用 Asia/Shanghai。
 
 请求失败会让任务失败，旧快照保留，去 Actions 查看失败记录。不要为了让任务显示成功而填充虚构账号数量。GitHub 对公开仓库的长期无活动定时任务有停用机制；如果任务停用，在 Actions 重新启用并核对 GitHub 当前规则。
 

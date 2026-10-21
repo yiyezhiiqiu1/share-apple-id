@@ -1,8 +1,8 @@
 name: 每日同步网站状态
 on:
   schedule:
-    # UTC 00:23 = 北京时间 08:23；GitHub 调度可能延迟。
-    - cron: '23 0 * * *'
+    # UTC 16:00 = 北京时间次日 00:00；GitHub 调度可能延迟。
+    - cron: '0 16 * * *'
   workflow_dispatch: {}
 permissions:
   contents: write
