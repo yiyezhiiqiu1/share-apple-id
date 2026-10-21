@@ -1,0 +1,46 @@
+{
+  "fetched_at": "2026-10-22T02:26:15+08:00",
+  "timezone": "Asia/Shanghai",
+  "regions": [
+    {
+      "region": "美区",
+      "url": "https://52id.org/apple-id-us.html",
+      "count": 1,
+      "normal": 1,
+      "abnormal": 0,
+      "unknown": 0
+    },
+    {
+      "region": "日区",
+      "url": "https://52id.org/apple-id-jp.html",
+      "count": 1,
+      "normal": 1,
+      "abnormal": 0,
+      "unknown": 0
+    },
+    {
+      "region": "港区",
+      "url": "https://52id.org/apple-id-hk.html",
+      "count": 1,
+      "normal": 1,
+      "abnormal": 0,
+      "unknown": 0
+    },
+    {
+      "region": "台湾地区",
+      "url": "https://52id.org/apple-id-tw.html",
+      "count": 1,
+      "normal": 1,
+      "abnormal": 0,
+      "unknown": 0
+    },
+    {
+      "region": "中国大陆",
+      "url": "https://52id.org/apple-id-cn.html",
+      "count": 1,
+      "normal": 1,
+      "abnormal": 0,
+      "unknown": 0
+    }
+  ]
+}

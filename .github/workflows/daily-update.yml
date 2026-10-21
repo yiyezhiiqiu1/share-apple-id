@@ -1,0 +1,39 @@
+name: 每日同步网站状态
+on:
+  schedule:
+    # UTC 00:23 = 北京时间 08:23；GitHub 调度可能延迟。
+    - cron: '23 0 * * *'
+  workflow_dispatch: {}
+permissions:
+  contents: write
+concurrency:
+  group: daily-update
+  cancel-in-progress: false
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: 检查统计逻辑
+        run: python -m unittest discover -s tests -v
+      - name: 读取网站接口并生成页面
+        run: python scripts/update.py
+      - name: 提交本次统计
+        env:
+          TZ: Asia/Shanghai
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- README.md data/latest.json
+          if git diff --cached --quiet; then
+            echo '本次内容没有变化'
+          else
+            git commit -m "同步网站状态 $(date +%Y-%m-%d)"
+            git push origin HEAD:main
+          fi
